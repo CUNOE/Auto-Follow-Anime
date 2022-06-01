@@ -22,4 +22,4 @@ COPY --from=builder /go/src/autoFollowAnime/app .
 
 RUN chmod 777 -R /root/enter.sh
 
-CMD ["bash", "-c", "/root/enter.sh"]
+CMD ["bash", "-c", "/root/enter.sh && tail -f /dev/null"]
