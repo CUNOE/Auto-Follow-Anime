@@ -20,4 +20,4 @@ WORKDIR /root/
 COPY --from=builder /go/src/autoFollowAnime/enter.sh .
 COPY --from=builder /go/src/autoFollowAnime/app .
 
-CMD ["./enter.sh"]
+ENTRYPOINT ["enter.sh"]
