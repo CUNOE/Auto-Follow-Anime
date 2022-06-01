@@ -20,4 +20,6 @@ WORKDIR /root/
 COPY --from=builder /go/src/autoFollowAnime/enter.sh .
 COPY --from=builder /go/src/autoFollowAnime/app .
 
-ENTRYPOINT ["enter.sh"]
+RUN chmod 777 -R /root/enter.sh
+
+CMD ["bash", "-c", "/root/enter.sh"]
