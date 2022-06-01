@@ -23,7 +23,7 @@ type RssAddressData struct {
 func LoadConfig() {
 	var conf Config
 
-	jsonFile, err := ioutil.ReadFile("./config.json")
+	jsonFile, err := ioutil.ReadFile("./afa/config.json")
 	if err != nil {
 		log.Printf(err.Error())
 	}
