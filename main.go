@@ -13,7 +13,7 @@ func main() {
 	global.InitSqlite()
 
 	c := cron.New()
-	_, err := c.AddFunc("@hourly", checkRss)
+	_, err := c.AddFunc(global.Crontab, checkRss)
 	if err != nil {
 		log.Fatal("Add CheeckRss Func To Cron error")
 		return

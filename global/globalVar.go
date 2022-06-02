@@ -23,3 +23,5 @@ var WsPort string
 var Conn *websocket.Conn
 
 var QQGroupId int64
+
+var Crontab string

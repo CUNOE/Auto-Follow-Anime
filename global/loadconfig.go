@@ -15,6 +15,7 @@ type Config struct {
 	WsPort     string           `json:"ws_port"`
 	RssAddress []RssAddressData `json:"rss_address"`
 	QQGroupId  int64            `json:"qq_group_id"`
+	Crontab    string           `json:"crontab"`
 }
 
 type RssAddressData struct {
@@ -41,6 +42,7 @@ func LoadConfig() {
 	JsonRpcToken = conf.Jsonrpc.RpcToken
 	WsPort = conf.WsPort
 	QQGroupId = conf.QQGroupId
+	Crontab = conf.Crontab
 
 }
 
