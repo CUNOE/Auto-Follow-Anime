@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"github.com/go-resty/resty/v2"
 	"log"
+	"time"
 )
 
 func PostToAria(torrent string, appendParams json.RawMessage, file string) {
@@ -42,6 +43,7 @@ func PostToAria(torrent string, appendParams json.RawMessage, file string) {
 	AddToDatabase(torrent, 1)
 
 	WriteMessage("您追的动漫更新辣！\n" + file)
+	time.Sleep(1 * time.Second)
 
 	return
 
