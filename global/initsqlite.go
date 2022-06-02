@@ -2,7 +2,6 @@ package global
 
 import (
 	"gorm.io/driver/sqlite" // Sqlite driver based on GGO
-	"gorm.io/gorm/logger"
 	"log"
 	"time"
 
@@ -11,9 +10,7 @@ import (
 )
 
 func InitSqlite() {
-	db, err := gorm.Open(sqlite.Open("./afa/sqlite.db"), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
-	})
+	db, err := gorm.Open(sqlite.Open("./afa/sqlite.db"), &gorm.Config{})
 	if err != nil {
 		log.Panicln(err)
 	}

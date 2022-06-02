@@ -38,17 +38,15 @@ func GetTorrentUri(uri string) (hashs []string, files []string) {
 
 	for _, u := range url_torrent {
 		hash := regexp.MustCompile("hash=").ReplaceAllString(regexp.MustCompile("hash=.*$").FindString(u.SelectAttr("url").Value), "")
-		if hash != "" {
-			hashs = append(hashs, hash)
-		}
+		hashs = append(hashs, hash)
 
-		log.Printf("GetHash: %v", hash)
 	}
 
 	filesGet := root.FindElements("./channel/item")
-	for _, f := range filesGet {
+	for i, f := range filesGet {
 		t := f.FindElement("title").Text()
 		files = append(files, t)
+		log.Printf("GetFile: %v & Hash: %v", t, hashs[i])
 	}
 
 	return
