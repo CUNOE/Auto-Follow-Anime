@@ -12,7 +12,6 @@ func main() {
 	global.LoadConfig()
 	global.InitSqlite()
 
-	go wsServer()
 	c := cron.New()
 	_, err := c.AddFunc("@hourly", checkRss)
 	if err != nil {
@@ -20,6 +19,8 @@ func main() {
 		return
 	}
 	c.Start()
+
+	wsServer()
 
 }
 
