@@ -12,7 +12,9 @@ type Config struct {
 		RpcProtocol string `json:"rpc_protocol"`
 		RpcToken    string `json:"rpc_token"`
 	} `json:"jsonrpc"`
+	WsPort     string           `json:"ws_port"`
 	RssAddress []RssAddressData `json:"rss_address"`
+	QQGroupId  int64            `json:"qq_group_id"`
 }
 
 type RssAddressData struct {
@@ -37,6 +39,8 @@ func LoadConfig() {
 
 	RssAddress = conf.RssAddress
 	JsonRpcToken = conf.Jsonrpc.RpcToken
+	WsPort = conf.WsPort
+	QQGroupId = conf.QQGroupId
 
 }
 

@@ -7,7 +7,7 @@ import (
 	"regexp"
 )
 
-func GetTorrentUri(uri string) (hashs []string) {
+func GetTorrentUri(uri string) (hashs []string, files []string) {
 	c := resty.New()
 	//c.SetProxy("http://127.0.0.1:61111")
 	xml, err := c.R().Get(uri)
@@ -43,6 +43,12 @@ func GetTorrentUri(uri string) (hashs []string) {
 		}
 
 		log.Printf("GetHash: %v", hash)
+	}
+
+	filesGet := root.FindElements("./channel/item")
+	for _, f := range filesGet {
+		t := f.FindElement("title").Text()
+		files = append(files, t)
 	}
 
 	return

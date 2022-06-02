@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-func PostToAria(torrent string, appendParams json.RawMessage) {
+func PostToAria(torrent string, appendParams json.RawMessage, file string) {
 	c := resty.New()
 	r := model.JsonrpcBack{}
 	metalink := "magnet:?xt=urn:btih:" + torrent
@@ -39,10 +39,10 @@ func PostToAria(torrent string, appendParams json.RawMessage) {
 		return
 	}
 
-	j, _ = json.Marshal(r)
-
-	log.Printf("ResponseResult: %v", string(j))
 	AddToDatabase(torrent, 1)
+
+	WriteMessage("您追的动漫更新辣！\n" + file)
+
 	return
 
 }

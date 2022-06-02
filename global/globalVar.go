@@ -2,6 +2,7 @@ package global
 
 import (
 	"autoFollowAnime/model"
+	"github.com/gorilla/websocket"
 	"gorm.io/gorm"
 )
 
@@ -17,3 +18,8 @@ var JsonRpcToken string
 var RssAddress []RssAddressData
 
 var DB *gorm.DB
+
+var WsPort string
+var Conn *websocket.Conn
+
+var QQGroupId int64

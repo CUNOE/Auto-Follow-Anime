@@ -17,9 +17,8 @@ FROM ubuntu:20.04 as prod
 
 WORKDIR /root/
 
-COPY --from=builder /go/src/autoFollowAnime/enter.sh .
 COPY --from=builder /go/src/autoFollowAnime/app .
 
-RUN chmod 777 -R /root/enter.sh
+RUN apt-get update && apt-get -qq install -y --no-install-recommends ca-certificates curl
 
-CMD ["bash", "-c", "/root/enter.sh && tail -f /dev/null"]
+CMD ["./app"]
