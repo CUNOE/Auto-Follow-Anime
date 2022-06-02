@@ -13,3 +13,19 @@
 ## 使用
 
 通过docker构建并且部署即可
+
+参考的docker compose
+
+```yaml
+  auto-follow-anime:
+    image: registry.cn-shanghai.aliyuncs.com/cunoe/auto-follow-anime:latest
+    container_name: cunoe-auto-follow-anime
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /home/cunoe/afa/:/root/afa
+    networks:
+      - cunoenet
+```
+
