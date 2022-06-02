@@ -18,7 +18,7 @@
 
 ```yaml
   auto-follow-anime:
-    image: registry.cn-shanghai.aliyuncs.com/cunoe/auto-follow-anime:latest
+    image: cunoe/auto-follow-anime:latest
     container_name: cunoe-auto-follow-anime
     restart: always
     environment:
@@ -27,5 +27,27 @@
       - /home/cunoe/afa/:/root/afa
     networks:
       - cunoenet
+  cqhttp:
+    image: silicer/go-cqhttp:latest
+    container_name: cunoe-qqbot
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /home/cunoe/cqhttp/:/data
+    networks:
+      - cunoenet
+      
+```
+
+参考的cqhttp ws设置
+
+```
+servers:
+  - ws-reverse:
+      universal: ws://auto-follow-anime:9000/ws
+      reconnect-interval: 3000
+      middlewares:
+        <<: *default
 ```
 
