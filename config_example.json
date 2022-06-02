@@ -1,9 +1,10 @@
 {
   "jsonrpc": {
-    "rpc_address": "127.0.0.1/jsonrpc",
+    "rpc_address": "127.0.0.1:6800/jsonrpc",
     "rpc_protocol": "http",
     "rpc_token": ""
   },
+  "ws_port": "9000",
   "rss_address": [
     {"rss": "http://www.kisssub.org/rss-%E8%BC%9D%E5%A4%9C%E5%A7%AC%E6%83%B3%E8%AE%93%E4%BA%BA%E5%91%8A%E7%99%BD+%E4%B8%80%E8%B6%85%E7%B4%9A%E6%B5%AA%E6%BC%AB%E4%B8%80+Lilith-Raws.xml", "append_params": {
       "dir": "/downloads/輝夜姬想讓人告白 一超級浪漫一"
@@ -11,5 +12,5 @@
     {"rss": "http://www.kisssub.org/rss-Yuusha+Yamemasu+Lilith-Raws.xml", "append_params": {
       "dir": "/downloads/勇者辞职不干了"
     }}
-  ]
+  "qq_group_id":123456789
 }
