@@ -63,7 +63,12 @@ func ReadMessage(c *gin.Context) {
 		if err != nil {
 			return
 		}
+
+		if msg.Message == "测试自动追番机器人" {
+			WriteMessage("机器人正常部署")
+		}
 	}
+
 }
 
 func WriteMessage(message string) {
