@@ -15,7 +15,7 @@ func main() {
 	c := cron.New()
 	_, err := c.AddFunc(global.Crontab, checkRss)
 	if err != nil {
-		log.Fatal("Add CheeckRss Func To Cron error")
+		log.Fatal("Add CheckRss Func To Cron error")
 		return
 	}
 	c.Start()
@@ -26,12 +26,12 @@ func main() {
 
 func checkRss() {
 	for _, rss := range global.RssAddress {
-		hashs, files := core.GetTorrentUri(rss.Rss)
-		for i, _ := range hashs {
-			if core.IsDownloaded(hashs[i]) {
-				log.Printf("Already Downloaded: %v", hashs[i])
+		hashes, files := core.GetTorrentUri(rss.Rss)
+		for i, _ := range hashes {
+			if core.IsDownloaded(hashes[i]) {
+				log.Printf("Already Downloaded: %v", hashes[i])
 			} else {
-				core.PostToAria(hashs[i], rss.AppendParams, files[i])
+				core.PostToAria(hashes[i], rss.AppendParams, files[i])
 			}
 		}
 	}

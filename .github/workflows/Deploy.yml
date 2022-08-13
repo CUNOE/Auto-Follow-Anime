@@ -1,4 +1,4 @@
-name: deploy autoFollowAnime
+name: deploy AutoFollowAnime
 
 on:
   push:

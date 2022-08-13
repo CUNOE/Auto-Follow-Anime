@@ -12,14 +12,14 @@ import (
 func PostToAria(torrent string, appendParams json.RawMessage, file string) {
 	c := resty.New()
 	r := model.JsonrpcBack{}
-	metalink := "magnet:?xt=urn:btih:" + torrent
+	magnetURL := "magnet:?xt=urn:btih:" + torrent
 
 	var params []interface{}
 
 	if appendParams != nil {
-		params = []interface{}{"token:" + global.JsonRpcToken, []string{metalink}, appendParams}
+		params = []interface{}{"token:" + global.JsonRpcToken, []string{magnetURL}, appendParams}
 	} else {
-		params = []interface{}{"token:" + global.JsonRpcToken, []string{metalink}}
+		params = []interface{}{"token:" + global.JsonRpcToken, []string{magnetURL}}
 	}
 
 	body := global.JsonRpcModel
